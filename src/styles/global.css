@@ -1,0 +1,174 @@
+/* ===================================================
+   GLOBAL STYLES
+   =================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+@import './variables.css';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: auto; /* GSAP handles smooth scroll */
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 12px;
+  z-index: 9999;
+  background: var(--color-burgundy);
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 0 0 4px 4px;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Texture overlay applied to sections */
+.texture-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.055'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: multiply;
+}
+
+/* ---- Display heading utilities ---- */
+.display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(72px, 15vw, 200px);
+  line-height: 0.86;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+.display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 9vw, 130px);
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+.display-md {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 72px);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.display-sm {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 3vw, 40px);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* 3D perspective context for rotateY card animations */
+.section-wrap {
+  perspective: 1200px;
+}
+
+/* ---- Diamond star decorator ---- */
+.stars {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.stars span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: currentColor;
+  transform: rotate(45deg);
+}
+
+/* ---- Dashed rule ---- */
+.dashed-rule {
+  width: 100%;
+  border: none;
+  border-top: 2px dashed var(--color-rule);
+  opacity: 0.5;
+  margin: 20px 0;
+}
+
+/* ---- Image placeholder (pink diagonal) ---- */
+.img-placeholder {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-pink-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.img-placeholder::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 50% 50% 0;
+  border-color: transparent var(--color-pink-dark) transparent transparent;
+}
+.img-placeholder .placeholder-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-pink-muted);
+  z-index: 1;
+}
+.img-placeholder .placeholder-inner svg {
+  width: 36px;
+  height: 36px;
+  opacity: 0.6;
+}
+.img-placeholder .placeholder-inner span {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* ---- Section wrapper ---- */
+.section-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-burgundy); border-radius: 2px; }

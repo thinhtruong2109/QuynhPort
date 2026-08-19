@@ -1,0 +1,203 @@
+.career { background: var(--color-bg); }
+
+/* === OVERVIEW (dark bg, slide 6) === */
+.career__overview {
+  background: var(--color-bg-dark);
+  padding: var(--section-pad-y) var(--section-pad-x);
+  position: relative;
+  overflow: hidden;
+}
+.career__overview::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 7px;
+  background: var(--color-pink-pale);
+}
+.career__overview-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.career__overview-label {
+  font-family: var(--font-body);
+  font-size: clamp(10px, 1.4vw, 13px);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-pink-muted);
+  margin-bottom: 12px;
+}
+.career__overview-title {
+  color: var(--color-pink-pale);
+  text-shadow: 5px 5px 0 rgba(0,0,0,0.25), 10px 10px 0 rgba(0,0,0,0.12);
+  margin-bottom: clamp(40px, 6vh, 72px);
+}
+
+/* Horizontal timeline */
+.career-timeline {
+  position: relative;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  padding-bottom: 16px;
+}
+.career-timeline::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: rgba(240, 216, 219, 0.35);
+}
+.career-timeline__item {
+  flex: 1;
+  min-width: 140px;
+  padding-top: 28px;
+  position: relative;
+  padding-right: 16px;
+}
+.career-timeline__dot {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--color-pink-pale);
+  border: 2px solid rgba(240,216,219,0.5);
+}
+.career-timeline__period {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-pink-muted);
+  margin-bottom: 4px;
+}
+.career-timeline__name {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text-light);
+  margin-bottom: 2px;
+}
+.career-timeline__role {
+  font-size: 11px;
+  color: rgba(245,238,234,0.65);
+  font-style: italic;
+}
+
+/* === INDIVIDUAL ROLE === */
+.career-role {
+  padding: var(--section-pad-y) var(--section-pad-x);
+  position: relative;
+  border-bottom: 1px solid rgba(123,31,42,0.1);
+}
+.career-role--odd {
+  background: #f5f0ea;
+}
+.career-role--even {
+  background: var(--color-bg);
+}
+.career-role__inner {
+  display: flex;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: flex-start;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.career-role--odd .career-role__inner {
+  flex-direction: row-reverse;
+}
+
+.career-role__text {
+  flex: 1.2;
+}
+.career-role__company {
+  color: var(--color-burgundy);
+  text-shadow: 3px 3px 0 rgba(0,0,0,0.08);
+  margin-bottom: 6px;
+}
+.career-role__sub-title {
+  font-family: var(--font-body);
+  font-size: clamp(13px, 1.8vw, 18px);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+.career-role__period {
+  font-size: 12px;
+  color: var(--color-text-mid);
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+.career-role__desc {
+  font-size: clamp(13px, 1.4vw, 15px);
+  line-height: 1.8;
+  color: var(--color-text-mid);
+  max-width: 520px;
+}
+.career-role__media {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: hidden;
+}
+
+/* Real slide image in career role */
+.career-role__img-wrap {
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border-radius: 3px;
+  position: relative;
+}
+
+.career-role__img {
+  width: 100%;
+  height: 115%;
+  object-fit: cover;
+  display: block;
+  will-change: transform;
+}
+.career-role__stars {
+  position: absolute;
+  top: var(--section-pad-y);
+  right: var(--section-pad-x);
+  display: flex;
+  gap: 6px;
+  opacity: 0.6;
+}
+
+/* Metrics */
+.career-metrics {
+  display: flex;
+  gap: clamp(24px, 4vw, 52px);
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+.career-metric__val {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 6vw, 64px);
+  color: var(--color-burgundy);
+  line-height: 1;
+}
+.career-metric__label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-mid);
+  margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+  .career-role__inner,
+  .career-role--odd .career-role__inner { flex-direction: column; }
+  .career-role__stars { display: none; }
+  .career-timeline { padding-bottom: 8px; }
+}

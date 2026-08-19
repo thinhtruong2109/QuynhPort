@@ -1,0 +1,36 @@
+/* ===================================================
+   DESIGN TOKENS — Nguyễn Thị Mỹ Quỳnh Portfolio
+   =================================================== */
+
+:root {
+  /* — Colors — */
+  --color-bg:          #ede8e1;        /* off-white / concrete */
+  --color-bg-dark:     #6b1520;        /* deep burgundy (dark sections) */
+  --color-burgundy:    #7b1f2a;        /* primary accent */
+  --color-burgundy-lt: #9b2535;        /* lighter burgundy for hover */
+  --color-pink-pale:   #f0d8db;        /* pale pink (image placeholders) */
+  --color-pink-muted:  #c4808c;        /* muted pink (diagonal accent) */
+  --color-pink-dark:   #a05060;        /* darker pink for placeholder triangle */
+  --color-text:        #2e1218;        /* near-black warm brown */
+  --color-text-light:  #f5eeea;        /* off-white text on dark sections */
+  --color-text-mid:    #6b3a40;        /* mid-tone body text */
+  --color-rule:        #9b2535;        /* dashed rule color */
+  --color-nav-bg:      rgba(237, 232, 225, 0.92);
+
+  /* — Typography — */
+  --font-display:  'Bebas Neue', 'Impact', sans-serif;
+  --font-body:     'Inter', system-ui, sans-serif;
+
+  /* — Spacing — */
+  --section-pad-x: clamp(24px, 6vw, 100px);
+  --section-pad-y: clamp(60px, 10vh, 120px);
+
+  /* — Z-index layers — */
+  --z-nav:     100;
+  --z-progress: 101;
+  --z-overlay:  90;
+
+  /* — Transitions — */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out:   cubic-bezier(0.4, 0, 0.2, 1);
+}
